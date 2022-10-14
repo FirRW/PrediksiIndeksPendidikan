@@ -1,7 +1,11 @@
 # **IVF Prediction App**
+IVF Prediction app using Scikit Model
+
+Deployed @ https://predictivfgrupb1.herokuapp.com/
+
 
 ## **Backgrounds**
--It is crucial for parents to have a clear view on both father’s and mother’s condition to be able to have a pregnancy. If the cell from both parents is not strong enough to conceive naturally, one of the things that parents could do is by IVF or what we called In Vitro Fertilization. This is by combining the sperm and egg cells that would be taken from both parents in a laboratory, which then be planted again in the mother’s womb. Even then, there are many factors that would influence and lead to the successfulness of the IVF process. 
+- It is crucial for parents to have a clear view on both father’s and mother’s condition to be able to have a pregnancy. If the cell from both parents is not strong enough to conceive naturally, one of the things that parents could do is by IVF or what we called In Vitro Fertilization. This is by combining the sperm and egg cells that would be taken from both parents in a laboratory, which then be planted again in the mother’s womb. Even then, there are many factors that would influence and lead to the successfulness of the IVF process. 
 - As such, we aim to make a prediction system using previous results of IVF on other patients based on their profile and their history, while also including the condition of the IVF process, including the storage process, time reserves, etc. 
 - This prediction system would conclude the successfulness from doing the IVF until birth. But this does not include the patient lifestyle during the pregnancy. From this prediction result, we would inform the patients of the outcome, whether it would be successful or not. Based on this information, the patients will now not blindly try the program without any prior knowledge and they would consider if they would risk the IVF process even if the program is expensive.  
 
@@ -11,7 +15,7 @@
 ## **Objectives**
 - Creating prediction system using a machine learning algorithm that uses data from previous patients
 - The prediction system will input the current patient’s profile and condition of the process. The output would result in whether the parents would have a successful birth or not. 
--The success would be if the trained model prediction reaches an ROC-AUC score of 75%, and is scored highest compared to other models.
+- The success would be if the trained model prediction reaches an ROC-AUC score of 75%, and is scored highest compared to other models.
 
 
 ## **Methods**
@@ -70,14 +74,15 @@ def feature_engineering_target (df_selected):
 
 
 ## **Developed By**
--Firdan Rahman W. : https://github.com/FearDawn
--Galih M
--Ridha 
+- Firdan Rahman W. : https://github.com/FearDawn
+- Galih M
+- Ridha 
 
 
 ## **Reference**
 Dataset: 
 - https://www.hfea.gov.uk/about-us/our-data/
+
 Journal:
 - Scientific Report: “Machine learning predicts live‑birth occurrence before in‑vitro fertilization treatment”, “AshishGoyal, Maheshwar Kuchana & Kameswari Prasada RaoAyyagari”, https://www.nature.com/scientificreports
 - “Multifactor Prediction of Embryo Transfer Outcomes Based on a Machine Learning Algorithm”, “Ran Liu, Shun Bai, Xiaohua Jiang, Lihua Luo, Xianhong Tong, Shengxia Zheng, Ying Wang and Bo Xu”.https://www.frontiersin.org/articles/745039
