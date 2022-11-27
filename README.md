@@ -50,8 +50,8 @@ def aggsum(df,variable_year,variable_kabupaten,target):
 ![](https://i.ibb.co/RpwpVbX/Best-featuress.png)
 
 ## **Developed By**
-- Firdan Rahman W. : https://github.com/FearDawn
-- Zulfikar : https://github.com/zulfikarnj
+- Firdan Rahman W. : https://github.com/FirRW
+- Zulfikar Aditya : https://github.com/zulfikarnj
 
 # **Indeks Pendidikan Prediction **
 Indeks Pendidikan using Scikit Model
