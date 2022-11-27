@@ -46,8 +46,8 @@ def aggsum(df,variable_year,variable_kabupaten,target):
 - The feature which has the most impact is "Ketersediaan Pusat Kegiatan Belajar". Based on this information, local government could improve the availibility, to increase their "Indeks Pendidikan"
 
 ![](https://i.ibb.co/Jd43XRV/Best-Feature.png)
-and
-![](https://ibb.co/mCWCMTn)
+
+![](https://i.ibb.co/RpwpVbX/Best-featuress.png)
 
 ## **Developed By**
 - Firdan Rahman W. : https://github.com/FearDawn
