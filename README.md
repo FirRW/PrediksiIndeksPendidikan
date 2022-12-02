@@ -14,10 +14,10 @@
 ## **Methods**
 1. Collect the data from data source
 2. Prepare the data
-3. Exploratory Data Analysis & Feature Selection and Engineering for the dataset, To optimize the features to be used on the model and to avoid an overfitting if it is further proceed with modeling
+3. Exploratory Data Analysis & Feature Selection and Engineering for the dataset
 4. Machine learning training using the dataset previously selected and modified, hyperparameters of model is adjusted on crossvalidations.
-5. The best model is then picked and saved into our prediction app
-6. Deploy the project into Deployment using API Streamlit and platform HEROKU
+5. The best model is then picked and saved into our prediction app, check the most important feature
+6. Deploy the project into Deployment using API Streamlit and platform HEROKU (optional)
 
 ## **Overview**
 - Most of the data features are numerical value, and some of them are aggregated or encoded
@@ -43,7 +43,7 @@ def aggsum(df,variable_year,variable_kabupaten,target):
 
 ## **Conclusion**
 - From the previous history data gathered from BPS and List of models used are Lasso Linear Model, Random Forest Regression, Support Vector Regression, and Gradient Boosting model. The best model of this is  Random Forest, with an RMSE Below 0.8, lowest compared to other models. As such, the prediction app would be made based on the saved random forest trained model.
-- The feature which has the most impact is "Ketersediaan Pusat Kegiatan Belajar". Based on this information, local government could improve the availibility, to increase their "Indeks Pendidikan"
+-Based on this information, local government could improve the indeks pendidikan based on the information on this project
 
 ![](https://i.ibb.co/Jd43XRV/Best-Feature.png)
 
