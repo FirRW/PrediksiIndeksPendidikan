@@ -43,7 +43,7 @@ def aggsum(df,variable_year,variable_kabupaten,target):
 
 ## **Conclusion**
 - From the previous history data gathered from BPS and List of models used are Lasso Linear Model, Random Forest Regression, Support Vector Regression, and Gradient Boosting model. The best model of this is  Random Forest, with an RMSE Below 0.8, lowest compared to other models. As such, the prediction app would be made based on the saved random forest trained model.
--Based on this information, local government could improve the indeks pendidikan based on the information on this project
+- Based on this project, local government could improve the indeks pendidikan based on the information detailed on this project
 
 ![](https://i.ibb.co/Jd43XRV/Best-Feature.png)
 
