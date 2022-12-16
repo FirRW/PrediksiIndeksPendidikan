@@ -17,7 +17,7 @@
 3. Exploratory Data Analysis & Feature Selection and Engineering for the dataset
 4. Machine learning training using the dataset previously selected and modified, hyperparameters of model is adjusted on crossvalidations.
 5. The best model is then picked and saved into our prediction app, check the most important feature
-6. Deploy the project into Deployment using API Streamlit and platform HEROKU (optional)
+6. Deploy the project into Deployment using API Streamlit and platform HEROKU or similar (optional)
 
 ## **Overview**
 - Most of the data features are numerical value, and some of them are aggregated or encoded
@@ -39,15 +39,31 @@ def aggsum(df,variable_year,variable_kabupaten,target):
    df= df.reset_index()
    return df
 ```
-- The features data is then trained on Lasso Linear Model, Random Forest Regression, Support Vector Regression, and Gradient Boosting models. with the help of cross validations for finding out the best parameters to be used, using the help of RandomizedSearchCV. Random Forest shows the best result
+- Education Index in West Java (Jawa Barat) range around 50-70 based on the data
+
+![](https://i.ibb.co/Zg6Hzb9/Best-model.png)
+
+- The features data is then trained on many models, such as Linear Regression, Lasso, Ridge, Bayesian Ridge, Elastic Net, Huber Regression, Random Forest, Decision Tree, support vector, SGD, gradient boosting, neighbors, lgbm, Adaboost and XGboost. with the help of cross validations for finding out the best parameters to be used, using the help of RandomizedSearchCV. 
 
 ## **Conclusion**
-- From the previous history data gathered from BPS and List of models used are Lasso Linear Model, Random Forest Regression, Support Vector Regression, and Gradient Boosting model. The best model of this is  Random Forest, with an RMSE Below 0.8, lowest compared to other models. As such, the prediction app would be made based on the saved random forest trained model.
-- Based on this project, local government could improve the indeks pendidikan based on the information detailed on this project
+- The best model of this is XGBOOST, with an RMSE 0.39 and R2 Score 0.74, lowest compared to other models. As such, the prediction app would be made based on the saved xgboost trained model.
 
-![](https://i.ibb.co/Jd43XRV/Best-Feature.png)
+![](https://i.ibb.co/Zg6Hzb9/Best-model.png)
 
-![](https://i.ibb.co/RpwpVbX/Best-featuress.png)
+- Other models used are Linear Regression, Lasso, Ridge, Bayesian Ridge, Elastic Net, Huber Regression, Random Forest, Decision Tree, support vector, SGD, gradient boosting, neighbors, lgbm, and Adaboost.
+- The most influential feature is the number of learning center activities(kegiatan pusat belajar). but this feature has a negative impact, so that the more learning center activities(kegiatan pusat belajar), the lower the value of the education index
+- Features that can be controlled by the government and have a positive impact based on this modeling are, by increasing the number of libraries (Jumlah Perpustakaan) & increasing illiteracy eradication activities (kegiatan pemberantasan buta aksara)
+
+![](https://i.ibb.co/wyztKbf/Feature-importance-SHAP-Bar.png)
+
+![](https://i.ibb.co/ZBr6wHf/Feature-importance-SHAP.png)
+
+## **Best model Explanation**
+- XGBoost, which stands for Extreme Gradient Boosting. When using gradient boosting for regression, the weak learners are regression trees, and each regression tree maps an input data point to one of its leafs that contains a continuous score. XGBoost minimizes a regularized objective function that combines a convex loss function (based on the difference between the predicted and target outputs) and a penalty term for model complexity. The training proceeds iteratively, adding new trees that predict the residuals or errors of prior trees that are then combined with previous trees to make the final prediction. 
+
+## **Limitation**
+- There is a missing data from source of a certain kabupaten/kota, it would be beneficial if the government would improve the dataset based on these missing value, especially on waktu tempuh sekolah
+- Limited amount of data is used in our modelling (only in West Java), as Education index in each kabupaten/kota would be differ on each province, so to make this modelling better, a whole kabupaten/kota on all provinces in Indonesia would make more impact on our project
 
 ## **Developed By**
 - Firdan Rahman W. : https://github.com/FirRW

@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import xgboost as xgb
 
 # Title
 st.header("Prediksi Indeks Pendidikan di Jawa Barat")
@@ -29,17 +30,17 @@ with col3:
     Jumlah_Guru_SMK = st.number_input("Jumlah Guru SMK",step=1,min_value=0)
 
 with col4:
-    waktu_tempuh_sd_terdekat = st.number_input("Waktu Tempuh SD Terdekat(dalam menit)",step=0.1,min_value=0)
-    waktu_tempuh_smp_terdekat = st.number_input("Waktu Tempuh SMP Terdekat(dalam menit)",step=0.1,min_value=0)
-    waktu_tempuh_sma_terdekat = st.number_input("Waktu Tempuh SMA Terdekat(dalam menit)",step=0.1,min_value=0)
+    waktu_tempuh_sd_terdekat = st.number_input("Waktu Tempuh SD Terdekat(dalam menit)",step=0.1,min_value=0.0)
+    waktu_tempuh_smp_terdekat = st.number_input("Waktu Tempuh SMP Terdekat(dalam menit)",step=0.1,min_value=0.0)
+    waktu_tempuh_sma_terdekat = st.number_input("Waktu Tempuh SMA Terdekat(dalam menit)",step=0.1,min_value=0.0)
     Garis_Kemiskinan = st.number_input("Garis Kemiskinan Menurut Kab/Kota (Rupiah/Perkapita/Perbulan)",step=1,min_value=0)
 
 
 # If button is pressed
-if st.button("Prediksi Indeks Pendidikan Berdasarkan data di Jawa Barat"):
+if st.button("Prediksi Indeks Pendidikan Berdasarkan data Anda"):
     
     # Unpickle model
-    model= pickle.load(open("xgb_cv", 'rb'))
+    xgb_cv_model= pickle.load(open("xgb_cv.pkl", 'rb'))
     scaler_fitur= pickle.load(open("scaler_fitur.pkl", 'rb'))
     scaler_target= pickle.load(open("scaler_target.pkl", 'rb'))
 
@@ -54,8 +55,6 @@ if st.button("Prediksi Indeks Pendidikan Berdasarkan data di Jawa Barat"):
     def feature_engineering_features (df_selected):
 
         df_selected_feature=df_selected
-
-
 
         features= ['status_kegiatan_buta_aksara',
                     'ketersediaan_pkbm',
@@ -75,21 +74,22 @@ if st.button("Prediksi Indeks Pendidikan Berdasarkan data di Jawa Barat"):
                     'waktu_tempuh_sma_terdekat',
                     'Garis Kemiskinan Menurut Kab/Kota (Rupiah/Perkapita/Perbulan)']
 
-        df_selected_feature = df_selected_feature.transpose().reindex(features).transpose()
+        df_selected_feature = df_selected_feature.transpose().reindex(features).transpose().astype(float)
 
         df_selected_feature['status_kegiatan_buta_aksara']= df_selected_feature['status_kegiatan_buta_aksara']/100
         
-        inputdata = pd.DataFrame(scaler_fitur.transform(df_selected_feature[features]),columns = features)
+       # inputdata = pd.DataFrame(scaler_fitur.transform(df_selected_feature[features]),columns = features)
 
-        return inputdata
+        return df_selected_feature
 
     Data_input = feature_engineering_features(df_input)
 
+    #st.text(Data_input.transpose())
     # Get prediction
     #Prediction:
-    result_prediction= model.predict(Data_input)
+    result_prediction= xgb_cv_model.predict(Data_input)
     data_hasil =pd.DataFrame(result_prediction,columns= ['indeks_pendidikan'])
     inversed_result = scaler_target.inverse_transform(data_hasil)
 
     # Output prediction
-    st.text("Hasil prediksi nilai indeks pendidikan berdasarkan kondisi anda", inversed_result)
+    st.text(print("Hasil prediksi nilai indeks pendidikan berdasarkan kondisi anda", inversed_result))
