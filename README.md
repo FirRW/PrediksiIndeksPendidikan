@@ -41,7 +41,7 @@ def aggsum(df,variable_year,variable_kabupaten,target):
 ```
 - Education Index in West Java (Jawa Barat) range around 50-70 based on the data
 
-![](https://i.ibb.co/Zg6Hzb9/Best-model.png)
+![](https://i.ibb.co/HxdRMty/EDA-2019-Indeks.png)
 
 - The features data is then trained on many models, such as Linear Regression, Lasso, Ridge, Bayesian Ridge, Elastic Net, Huber Regression, Random Forest, Decision Tree, support vector, SGD, gradient boosting, neighbors, lgbm, Adaboost and XGboost. with the help of cross validations for finding out the best parameters to be used, using the help of RandomizedSearchCV. 
 
